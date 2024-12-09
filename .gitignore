@@ -1,0 +1,11 @@
+
+.idea
+venv
+*.hcl
+*.backup
+*.tfstate
+.terraform/
+.terragrunt-cache/
+*.log
+*.tmp
+*terraform.tfstate.d/

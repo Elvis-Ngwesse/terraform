@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "superb-gear-443409-t3",
+  "private_key_id": "21c1c0a9f3b41850ddd7e815c1605dea4d077fa7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDP/AJG/CLQTAMt\nlZERvK58S1MxiL4F8cCJ4WXwFWPjOZ5va3Z/Kdt2GTmU5Ils9NdCz0ucUE2ZXgUL\nxXeMBDCRH6+VT7fkVEtjokpc8J5aoq7AfdHvu8iZjcqhbQnIEJyw6IcdTV8Y2FLd\ndDw69l7nTJFly8NMex8O3xEtkRO71CdOU4qaHYerQUsQWaV/mrK9Uo5fU5zGYYOX\nUoHaedE9tP3WL5NesmOD3TB2QY7tFdlzaSFcOfAvbcWBStOLqgeY7jiFqCwk62XR\nDebf5vn33JmYAFzPCJmKZsB70axuGJsdv/HCyWrqaqoX/7vcRljiNXMlDK5GjwXN\n4vwA8z2XAgMBAAECggEARTduwJX3tg+d/SUqBtee0BG3aaRC7TKD678eEDTmLcBG\nuHjwkihpd5e0gJdAHwkqvHrFhIt7D7/o+P5qJyhby2hapFvH7M6a2lkv21des/Yx\nJzGYVOrPOz8jgO6LU1An/X4dPUS7EccoaLfetZa5hcuHFfQmlkThVK8rBdmi0h6S\nsEkvaooQ0xeBPE4cOu0o5ykMEyIv+o0PrqavcHTxq6xU/2xTehbRbOekJjtq6uIc\nN3Qiy9a6JyX1YA6IJHfS3Uc0G0WgyaVPvgN+vg008MgF5oL9r4RTFAqZFF5QJo1P\n7E/CTC0p1aGD1cjGSbTal9/SHC6mLEDJH78uf7fC0QKBgQDpDG8XKVnOuaEdSMPz\nl7FcQPBQv/Fk8/dXPvTj3BZ7zeYbxNcUT68vFdPijWN1mmxKhohKo64kv24lwMZK\nOSS1nFAVptMu0/CPC7pd78vFdbxDm70ZVqvjrq8o5zDOFkEMK+W7GGtnvR9RuH64\nyRyoHCj2GxSdAwtJyc5l5MyUMQKBgQDkd6nHYltlQ/7QbYxnge6KHwBFbQbgMu5z\npFUGNwFLiOofrLpz2DBw2ggwSqhQ63RYZ25OuBsLb/9KC3xq6RtkP8RX0AQ87J+T\nWlSln60Gjmd0+M6tybzl1jRQIRAEKC63GN8YVK2mpySJIgKUv68wXnL06eSySoo6\nCOylkcNkRwKBgC0apvWIn0UPUEtmpeYjWcRNHTXDsGilfx13pdXj5sYXV43QTwAz\nW+h1BQk37CP6uzLBTueDPlUGZ78OzFHZNW2gzy8hloXdpxVIY82Cd6HD46gCIFsj\nFyl9yZDVDfEVBYnhhRjs5Pyy8bjTSFNjORSgPp1DKH4q9KhXUocN/TpBAoGBAIlK\n26zkj1W4Wa0417Hv47/+xzPxQ7uA/8hgjXORpGaW3VKxgs5QsTNv4pHam3EdPSpO\n5XvKqP3jjL8bTeYVNQ+2PjAi4hkWfQKYuttYrCqPct5ZEiJfY/OeGIu6gpxs5T3E\nZXSClmPad1stI+3tjsJ7T4ub7oGxx4T+je8lPAzLAoGAL3PWk3YI/xcCaXMTIUuo\n4wnSf0hMWNY4ZWcj/6mZMVtWCBKKE2FpXVZ2vuL0LEMo1LwkKKpvyntiZ6c8wANB\nFXhqZTf0krOwOVWrUSwyRHS818qLEJVKXtux0IeMb4p4tEgAV8MqfuKqDYc8qce6\nhE2IpIoM12SXANs99xMh1Fw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "devops-service-account@superb-gear-443409-t3.iam.gserviceaccount.com",
+  "client_id": "117319469086545399484",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/devops-service-account%40superb-gear-443409-t3.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
