@@ -9,3 +9,4 @@ venv
 *.log
 *.tmp
 *terraform.tfstate.d/
+*.json
