@@ -10,11 +10,19 @@ Terraform lets you write code to describe the infrastructure you need — like s
 - State: Terraform keeps track of what it’s managing using a state file (terraform.tfstate).
 - Plan and Apply: You use terraform plan to preview changes and terraform apply to execute them.
 
-# Create virtual env
-    # install python
-    # python3 -m venv venv
-    # source venv/bin/activate
-    # pip3 install -r src/requirements.txt
-    # pip3 freeze > src/requirements.txt 
-        # Only do this if requirements.txt is empty
-        # First install al dependencies then run pip freeze command
+# Configure AWS
+- brew install awscli
+- aws configure
+
+# Terraform Installation
+- brew tap hashicorp/tap
+- brew install hashicorp/tap/terraform
+- terraform -v
+
+# Initialize Terraform
+- terraform init
+- terraform plan -var-file="../terraform.tfvars"
+# Apply Configuration
+- terraform apply
+- terraform apply -var-file="../terraform.tfvars"
+- terraform destroy -var-file="../terraform.tfvars"

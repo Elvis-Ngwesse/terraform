@@ -1,13 +1,30 @@
+# Region/Zone
+
+
+# Email
+- aws.gcp.devops.elvis@gmail.com
+
+# Configure AWS
+- brew install awscli
+- aws configure
+
+# Configure Google
+- brew install --cask google-cloud-sdk
+- gcloud init
+- gcloud auth login
+- gcloud projects create devops-project-elvis --name="DevOps Project Elvis"
+- gcloud projects list
+- gcloud auth revoke dopc02devops@gmail.com
+- gcloud config set project devops-project-elvis
+- gcloud billing accounts list
+- gcloud billing projects link devops-project-elvis \
+  --billing-account=013D92-616728-DB3DF8
+- gcloud services enable compute.googleapis.com storage.googleapis.com cloudfunctions.googleapis.com
+
 # Terraform Installation
 - brew tap hashicorp/tap
 - brew install hashicorp/tap/terraform
 - terraform -v
-
-# Google Cloud SDK Installation
-- brew install --cask google-cloud-sdk
-- gcloud init
-- gcloud auth login
-- gcloud config set project PROJECT_ID
 
 # Terraform commands
 - terraform init
@@ -15,6 +32,24 @@
 - terraform plan
 - terraform apply
 - terraform destroy
+
+# Add IAM Roles
+gcloud projects add-iam-policy-binding devops-project-elvis \
+  --member="user:aws.gcp.devops.elvis@gmail.com" \
+  --role="roles/compute.securityAdmin"
+
+gcloud projects add-iam-policy-binding devops-project-elvis \
+  --member="user:aws.gcp.devops.elvis@gmail.com" \
+  --role="roles/compute.networkAdmin"
+
+
+
+
+
+
+
+
+
 
 
 
@@ -56,3 +91,16 @@
     - Install multiple versions
     - tfenv use [version number]
 
+
+
+# Create role
+gcloud iam roles create firewallCreator \
+  --project=devops-project-elvis \
+  --title="Firewall Creator" \
+  --description="Custom role to allow creating firewall rules" \
+  --permissions="compute.firewalls.create,compute.firewalls.get,compute.firewalls.list" \
+  --stage="GA"
+
+gcloud projects add-iam-policy-binding devops-project-elvis \
+  --member="serviceAccount:devops-project-elvis@appspot.gserviceaccount.com" \
+  --role="projects/devops-project-elvis/roles/firewallCreator"
