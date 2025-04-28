@@ -11,3 +11,4 @@ venv
 *.tmp
 *terraform.tfstate.d/
 *.json
+devops-project-ts-280087a3448a.json

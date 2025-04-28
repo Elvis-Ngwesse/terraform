@@ -93,6 +93,6 @@ output "instance_name_ip" {
 
 
 
-#gcloud projects add-iam-policy-binding superb-gear-443409-t3 \
+#gcloud projects add-iam-policy-binding devops-project-ts \
 #--member="user:dopc02devops@gmail.com" \
 #--role="roles/viewer"

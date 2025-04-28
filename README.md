@@ -1,37 +1,11 @@
-# Region/Zone
-
 
 # Email
 - aws.gcp.devops.elvis@gmail.com
-
-# Configure AWS
-- brew install awscli
-- aws configure
-
-# Configure Google
-- brew install --cask google-cloud-sdk
-- gcloud init
-- gcloud auth login
-- gcloud projects create devops-project-elvis --name="DevOps Project Elvis"
-- gcloud projects list
-- gcloud auth revoke dopc02devops@gmail.com
-- gcloud config set project devops-project-elvis
-- gcloud billing accounts list
-- gcloud billing projects link devops-project-elvis \
-  --billing-account=013D92-616728-DB3DF8
-- gcloud services enable compute.googleapis.com storage.googleapis.com cloudfunctions.googleapis.com
 
 # Terraform Installation
 - brew tap hashicorp/tap
 - brew install hashicorp/tap/terraform
 - terraform -v
-
-# Terraform commands
-- terraform init
-- terraform validate
-- terraform plan
-- terraform apply
-- terraform destroy
 
 # Add IAM Roles
 gcloud projects add-iam-policy-binding devops-project-elvis \
