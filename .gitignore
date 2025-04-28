@@ -6,6 +6,7 @@ venv
 *.tfstate
 .terraform/
 .terragrunt-cache/
+.terraform.lock.hcl
 *.log
 *.tmp
 *terraform.tfstate.d/

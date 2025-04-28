@@ -1,12 +1,14 @@
 # variables.tf
 
-# Variable for the EC2 instance machine type and availability zone
+# Variable for the EC2 instance machine type
 variable "machine" {
-  description = "Configuration for the EC2 instance machine"
-  type = object({
-    machine_type = string
-    zone         = string
-  })
+  description = "The EC2 instance machine type"
+  type        = string
+}
+
+variable "availability_zone" {
+  description = "The availability zone for the EC2 instance"
+  type        = string
 }
 
 # Variable for the SSH key name to access EC2 instances
@@ -19,19 +21,16 @@ variable "ssh_key_name" {
 variable "aws_region" {
   description = "The AWS region to deploy the resources"
   type        = string
-  default     = "eu-west-2"
 }
 
-# Variable for environment name (default is dev)
+# Variable for environment name
 variable "environment" {
   description = "Environment for the resources"
   type        = string
-  default     = "dev"
 }
 
 # Variable for the AMI ID used for EC2 instances
 variable "ami_id" {
   description = "The AMI ID to use for EC2 instances"
   type        = string
-  default     = "ami-0fbbcfb8985f9a341"
 }

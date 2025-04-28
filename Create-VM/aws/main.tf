@@ -12,15 +12,12 @@ provider "aws" {
 
 # Create 3 EC2 instances using count
 resource "aws_instance" "t2_micro_instance" {
-  count             = 3
+  count             = 2
   ami               = var.ami_id
-  instance_type     = var.machine.machine_type
-  availability_zone = var.machine.zone
-  
+  instance_type     = var.machine
+  availability_zone = var.availability_zone
   key_name          = var.ssh_key_name
-
   security_groups   = [aws_security_group.allow_ssh_and_ping.name]
-  
   tags = {
     Name        = "instance-${count.index + 1}"
     Environment = local.environment
@@ -30,7 +27,7 @@ resource "aws_instance" "t2_micro_instance" {
   # User data to configure the instance
   user_data = <<-EOF
               #!/bin/bash
-              echo "Hello, World!" > /home/ubuntu/hello.txt
+              echo "Hello, World!" > /home/ec2-user/hello.txt
               EOF
 }
 
