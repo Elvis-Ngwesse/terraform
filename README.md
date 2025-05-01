@@ -17,8 +17,14 @@ gcloud projects add-iam-policy-binding devops-project-elvis \
   --role="roles/compute.networkAdmin"
 
 
+gcloud services enable compute.googleapis.com --project=ecstatic-maxim-457703-f8
 
 
+gcloud components update
+
+gcloud projects add-iam-policy-binding ecstatic-maxim-457703-f8 \
+--member="user:aws.gcp.devops.elvis@gmail.com" \
+--role="roles/compute.admin"
 
 
 

@@ -9,7 +9,7 @@ availability_zone = "eu-west-2a"
 
 
 # GOOGLE terraform.tfvars
-project_id = "devops-project-ts"
+project_id = "ecstatic-maxim-457703-f8"
 gcp_region = "europe-west2"
 gcp_zone = "europe-west2-a"
 machine_gcp = "e2-micro"
