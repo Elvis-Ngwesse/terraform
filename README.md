@@ -7,37 +7,11 @@
 - brew install hashicorp/tap/terraform
 - terraform -v
 
-# Add IAM Roles
-gcloud projects add-iam-policy-binding devops-project-elvis \
-  --member="user:aws.gcp.devops.elvis@gmail.com" \
-  --role="roles/compute.securityAdmin"
-
-gcloud projects add-iam-policy-binding devops-project-elvis \
-  --member="user:aws.gcp.devops.elvis@gmail.com" \
-  --role="roles/compute.networkAdmin"
-
-
-gcloud services enable compute.googleapis.com --project=ecstatic-maxim-457703-f8
-
-
-gcloud components update
-
-gcloud projects add-iam-policy-binding ecstatic-maxim-457703-f8 \
---member="user:aws.gcp.devops.elvis@gmail.com" \
---role="roles/compute.admin"
 
 
 
 
 
-
-
-
-
-    - To overide variables
-      - terraform plan -var-file="dev.tfvars" -out="planfile"
-      - terraform apply "planfile"
-      - terraform destroy -var-file="dev.tfvars"
 - Create pubblic key
     - ssh-keygen -t rsa -b 4096 -f ~/.ssh/[key-name]
 - Login cli
@@ -71,16 +45,4 @@ gcloud projects add-iam-policy-binding ecstatic-maxim-457703-f8 \
     - Install multiple versions
     - tfenv use [version number]
 
-
-
-# Create role
-gcloud iam roles create firewallCreator \
-  --project=devops-project-elvis \
-  --title="Firewall Creator" \
-  --description="Custom role to allow creating firewall rules" \
-  --permissions="compute.firewalls.create,compute.firewalls.get,compute.firewalls.list" \
-  --stage="GA"
-
-gcloud projects add-iam-policy-binding devops-project-elvis \
-  --member="serviceAccount:devops-project-elvis@appspot.gserviceaccount.com" \
-  --role="projects/devops-project-elvis/roles/firewallCreator"
+    

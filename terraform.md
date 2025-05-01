@@ -1,18 +1,25 @@
-# Terraform
-Terraform is an open-source Infrastructure as Code (IaC) tool created by HashiCorp. It allows you to define, provision, and manage infrastructure using a high-level configuration language called HashiCorp Configuration Language (HCL) or optionally JSON.
-
-Terraform lets you write code to describe the infrastructure you need — like servers, databases, networks, or cloud services — and then automatically sets it up for you.
-
-# Core Concepts
-- Providers: These are the services Terraform can interact with AWS, Azure, GCP, Kubernetes
-- Resources: These are the components you want to create/manage (like an EC2 instance, an S3 bucket, etc.)
-- Modules: Packages of reusable Terraform code.
-- State: Terraform keeps track of what it’s managing using a state file (terraform.tfstate).
-- Plan and Apply: You use terraform plan to preview changes and terraform apply to execute them.
 
 # Configure AWS
 - brew install awscli
 - aws configure
+
+# Configure Google
+- brew install --cask google-cloud-sdk
+- gcloud init
+- gcloud auth login
+- gcloud projects create new-devops-project-1 --name="New Devops Project-1"
+- gcloud beta billing accounts list
+- gcloud beta billing projects link new-devops-project-1 --billing-account 013D92-616728-DB3DF8
+- gcloud config set project new-devops-project-1
+- gcloud iam service-accounts create new-devops-service-account \
+  --display-name "New DevOps Service Account"
+- gcloud projects add-iam-policy-binding new-devops-project-1 \
+  --member="serviceAccount:new-devops-service-account@new-devops-project-1.iam.gserviceaccount.com" \
+  --role="roles/editor"
+- gcloud iam service-accounts keys create gcp-key.json \
+  --iam-account new-devops-service-account@new-devops-project-1.iam.gserviceaccount.com
+- gcloud iam service-accounts list --project=new-devops-project-1
+- gcloud services enable compute.googleapis.com storage.googleapis.com cloudfunctions.googleapis.com
 
 # Terraform Installation
 - brew tap hashicorp/tap
@@ -21,8 +28,8 @@ Terraform lets you write code to describe the infrastructure you need — like s
 
 # Initialize Terraform
 - terraform init
-- terraform plan -var-file="../terraform.tfvars"
+- terraform plan -var-file="../../terraform.tfvars"
+
 # Apply Configuration
-- terraform apply
-- terraform apply -var-file="../terraform.tfvars"
-- terraform destroy -var-file="../terraform.tfvars"
+- terraform apply -var-file=".../../terraform.tfvars"
+- terraform destroy -var-file="../../terraform.tfvars"

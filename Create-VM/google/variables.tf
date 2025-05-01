@@ -28,7 +28,14 @@ variable "image" {
   type        = string
 }
 
-variable "ssh_keys" {
-  description = "The SSH public keys for instance access"
+variable "gcp_credentials_file" {
   type        = string
+  description = "Path to the Google Cloud credentials JSON file"
+  sensitive   = true
+}
+
+variable "ssh_key_file" {
+  type        = string
+  description = "SSH key path"
+  sensitive   = true
 }

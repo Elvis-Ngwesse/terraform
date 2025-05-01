@@ -9,9 +9,10 @@ availability_zone = "eu-west-2a"
 
 
 # GOOGLE terraform.tfvars
-project_id = "ecstatic-maxim-457703-f8"
+project_id = "new-devops-project-1"
 gcp_region = "europe-west2"
 gcp_zone = "europe-west2-a"
 machine_gcp = "e2-micro"
 image = "projects/ubuntu-os-cloud/global/images/family/ubuntu-2004-lts"
-ssh_keys = "/Users/elvisngwesse/.ssh/id_kube_user_key.pub"
+gcp_credentials_file = "./gcp-key.json"
+ssh_key_file = "/Users/elvisngwesse/.ssh/id_kube_user_key.pub"
