@@ -1,4 +1,3 @@
-
 # SSH into Instance
 - gcloud compute ssh gcp-user@instance-1 --zone=europe-west2-a
 - ssh -i ~/.ssh/gcp_key gcp-user@public_ip
@@ -18,4 +17,7 @@
 - SSH into private instance
   - ssh private
   - sudo apt update && sudo apt upgrade -y
+  - ping 8.8.8.8     # Should succeed if NAT works
+    ping google.com  # Should succeed if DNS works
+
 

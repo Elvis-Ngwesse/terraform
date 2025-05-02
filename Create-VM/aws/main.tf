@@ -10,9 +10,9 @@ provider "aws" {
   region = var.aws_region
 }
 
-# Create 3 EC2 instances using count
+# Create 1 EC2 instance using count
 resource "aws_instance" "t2_micro_instance" {
-  count             = 2
+  count             = 1
   ami               = var.ami_id
   instance_type     = var.machine
   availability_zone = var.availability_zone

@@ -34,3 +34,25 @@
 - terraform apply -var-file="../../terraform.tfvars"
 # Destroy Terraform
 - terraform destroy -var-file="../../terraform.tfvars"
+
+# Plan  IP Address Range
+- Pick an IP range from the RFC 1918 private IP blocks, commonly used for internal networks
+  10.0.0.0/8
+  172.16.0.0/12
+  192.168.0.0/16
+  These are non-routable on the public internet and safe for internal use
+- Avoid Overlaps
+  Ensure the range you pick doesn't overlap with:
+  Other subnets in your VPC
+  On-prem networks (if you’re using hybrid connectivity like VPN or Interconnect)
+- CIDR Size Selection
+  Choose the CIDR block size based on expected usage:
+  /24 = 256 IPs (usable ~251 after reservation) → Good for small subnets
+  /16 = 65,536 IPs → Very large subnet, often overkill
+  /28 = 16 IPs → Very small subnet, mostly for specialized cases
+- Example
+  Your VPC is 10.0.0.0/16
+  Then:
+    10.0.1.0/24 → for public subnet
+    10.0.2.0/24 → for private subnet
+    10.0.3.0/24 → reserved for future use
