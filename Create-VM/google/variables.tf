@@ -33,9 +33,3 @@ variable "gcp_credentials_file" {
   description = "Path to the Google Cloud credentials JSON file"
   sensitive   = true
 }
-
-variable "ssh_key_file" {
-  type        = string
-  description = "SSH key path"
-  sensitive   = true
-}

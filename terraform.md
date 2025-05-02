@@ -28,8 +28,9 @@
 
 # Initialize Terraform
 - terraform init
+# Plan Terraform
 - terraform plan -var-file="../../terraform.tfvars"
-
 # Apply Configuration
-- terraform apply -var-file=".../../terraform.tfvars"
+- terraform apply -var-file="../../terraform.tfvars"
+# Destroy Terraform
 - terraform destroy -var-file="../../terraform.tfvars"
