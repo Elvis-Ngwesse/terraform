@@ -68,9 +68,3 @@ variable "private_subnet_cidr" {
   type        = string
   default     = "10.0.2.0/24"  # Example CIDR block for the private subnet
 }
-
-# The ID of the security group for the EC2 instance
-variable "security_group_id" {
-  description = "The ID of the security group for the EC2 instance"
-  type        = string
-}
