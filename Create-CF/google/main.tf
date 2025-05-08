@@ -1,73 +1,76 @@
+# -----------------------------
+# Set environment as a local variable
+# -----------------------------
+locals {
+  environment            = var.environment
+  bucket_name_prefix     = "bucket"
+  bucket_location        = var.bucket_location
+  function_zip_file      = var.function_zip_file
+  function_name          = var.function_name
+  function_entry_point   = var.function_entry_point
+  function_runtime       = var.function_runtime
+  env_var                = var.environment
+}
 
-
-# Add provider
+# -----------------------------
+# Configure GCP Provider
+# -----------------------------
 provider "google" {
-  credentials = file("../../gcp-account.json")
-  project = "superb-gear-443409-t3"
-  region  = "europe-west2"
-  zone    = "europe-west2-a"
+  credentials = file(var.gcp_credentials_file)
+  project     = var.project_id
+  region      = var.gcp_region
+  zone        = var.gcp_zone
 }
 
-
+# -----------------------------
 # Generate a random string for the bucket name
+# -----------------------------
 resource "random_string" "bucket_name" {
-  length  = 16  # Adjust length as needed
-  special = false  # Set to true if you want special characters
-  upper   = false  # Set to true if you want uppercase characters
+  length  = 16
+  special = false
+  upper   = false
 }
 
+# -----------------------------
+# Create a Google Cloud Storage bucket
+# -----------------------------
 resource "google_storage_bucket" "function_bucket" {
-  name                        = "bucket-${random_string.bucket_name.result}"
-  location                    = "europe-west2"
+  name     = "${local.bucket_name_prefix}-${random_string.bucket_name.result}"
+  location = local.bucket_location
+
   lifecycle {
     prevent_destroy = false
   }
 }
 
+# -----------------------------
 # Upload function code as a zip file
+# -----------------------------
 resource "google_storage_bucket_object" "function_zip" {
-  name   = "function.zip"
+  name   = local.function_zip_file
   bucket = google_storage_bucket.function_bucket.name
-  source = "function.zip"  # Path to your zipped function code
+  source = local.function_zip_file
 }
 
+# -----------------------------
 # Deploy Cloud Function
+# -----------------------------
 resource "google_cloudfunctions_function" "put_function" {
-  name        = "put_api_function"
-  runtime     = "python310"
-  trigger_http = true
-  entry_point = "update_data"
-
-  source_archive_bucket = google_storage_bucket.function_bucket.name
-  source_archive_object = google_storage_bucket_object.function_zip.name
+  name                    = local.function_name
+  runtime                 = local.function_runtime
+  trigger_http            = true
+  entry_point             = local.function_entry_point
+  source_archive_bucket   = google_storage_bucket.function_bucket.name
+  source_archive_object   = google_storage_bucket_object.function_zip.name
 
   environment_variables = {
-    ENV = "production"
+    ENV = local.env_var
   }
 }
 
-
+# -----------------------------
+# Output the Cloud Function URL
+# -----------------------------
 output "function_url" {
   value = google_cloudfunctions_function.put_function.https_trigger_url
 }
-
-#----------Enable api----------
-#gcloud services enable cloudfunctions.googleapis.com
-#gcloud services enable cloudbuild.googleapis.com
-#gcloud services enable storage.googleapis.com
-#gcloud services list --enabled
-
-#----------Zip code----------
-# zip function.zip main.py requirements.txt
-
-#----------Grant access to function----------
-#gcloud functions add-iam-policy-binding put_api_function \
-#--region europe-west2 \
-#--member="allUsers" \
-#--role="roles/cloudfunctions.invoker"
-
-#----------Make curl request----------
-#curl -X PUT -H "Content-Type: application/json" \
-#-d '{"id": 123, "name": "Test Data"}' \
-#https://europe-west2-superb-gear-443409-t3.cloudfunctions.net/put_api_function
-
