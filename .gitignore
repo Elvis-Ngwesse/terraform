@@ -16,4 +16,4 @@ venv
 *.backup
 crash.log
 
-Create-CF/aws/python/
+Create-CloudFunction/aws/python/
