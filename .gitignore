@@ -15,3 +15,5 @@ venv
 *.hcl
 *.backup
 crash.log
+
+Create-CF/aws/python/

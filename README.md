@@ -1,4 +1,8 @@
 
+
+python3 -m venv venv
+source venv/bin/activate
+
 # Email
 - aws.gcp.devops.elvis@gmail.com
 
