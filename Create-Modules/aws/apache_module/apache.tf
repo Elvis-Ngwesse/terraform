@@ -54,13 +54,15 @@ resource "aws_instance" "web_server_apache" {
     Name = var.apache_server_name
   }
 
-  # User data for installing and starting Apache
+  # User data for installing and starting Apache, with a custom welcome page
   user_data = <<-EOT
     #!/bin/bash
     sudo yum update -y
     sudo yum install -y httpd
     sudo systemctl start httpd
     sudo systemctl enable httpd
+    # Create a custom welcome page
+    echo "<html><body><h1>Welcome to My Apache Web Server!</h1><p>This is a custom message.</p></body></html>" > /var/www/html/index.html
   EOT
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]  # ✅ Fixed here
