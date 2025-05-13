@@ -1,9 +1,14 @@
+# -----------------------------
+# outputs.tf
+# -----------------------------
 
-
-output "apache_ip" {
-  value = {
-    name = google_compute_instance.web_server_apache.name
-    ip   = google_compute_instance.web_server_apache.network_interface[0].access_config[0].nat_ip
-  }
-  description = "The name and public IP of the web_server_apache"
+output "web_server_ip" {
+  description = "The public IP address of the Apache web server instance."
+  value       = aws_instance.web_server_apache.public_ip
 }
+
+output "web_server_id" {
+  description = "The ID of the Apache EC2 instance."
+  value       = aws_instance.web_server_apache.id
+}
+
