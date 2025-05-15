@@ -9,7 +9,7 @@ terraform {
 # Provider configuration for Google Cloud Platform
 # --------------------------------------------------
 provider "google" {
-  credentials = var.credentials_file
+  credentials = file(var.credentials_file)
   project     = var.project_id
   region      = var.region
 }

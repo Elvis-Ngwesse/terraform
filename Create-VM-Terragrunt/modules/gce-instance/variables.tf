@@ -4,8 +4,6 @@
 variable "credentials_file" {
   description = "Path to the Google Cloud credentials JSON file"
   type        = string
-  default = "/Users/elvisngwesse/Desktop/Repositories/terraform/gcp-key.json"
-  sensitive   = true
 }
 
 # --------------------------------------------

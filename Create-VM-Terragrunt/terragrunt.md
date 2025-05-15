@@ -1,13 +1,21 @@
 
+├── terraform/
+│   ├── gcp-key.json                                   <-- your GCP credentials
+│   └── Create-VM-Terragrunt/
+│       ├── modules/                                   <-- Terraform modules directory
+│       │   └── gce-instance/
+│       │       ├── main.tf                            <-- GCE instance resource definition
+│       │       └── variables.tf                       <-- Input variables for the module
+│       │
+│       ├── live/                                      <-- Environment configurations
+│       │   ├── config.hcl                             <-- Shared Terragrunt configuration
+│       │   ├── prod/
+│       │   │   └── gce-instance/
+│       │   │       └── terragrunt.hcl                 <-- Terragrunt config for prod
+│       │   └── dev/
+│       │       └── gce-instance/
+│       │           └── terragrunt.hcl                 <-- Terragrunt config for dev
 
-infrastructure/
-├── live/
-│   ├── dev/
-│   │   ├── gce-instance/
-│   ├── prod/
-│   │   ├── gce-instance/
-└── modules/
-└── gce-instance/
 
 
 1. Define the GCE Instance Module
@@ -23,6 +31,7 @@ Run Terragrunt Commands
 Once you have everything set up, you can use Terragrunt to manage and deploy the infrastructure across environments.
 
 cd live/dev/gce-instance
+cd live/prod/gce-instance
 terragrunt apply
 terragrunt run-all destroy
 
