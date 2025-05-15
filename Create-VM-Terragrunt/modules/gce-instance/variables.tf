@@ -4,7 +4,8 @@
 variable "credentials_file" {
   description = "Path to the Google Cloud credentials JSON file"
   type        = string
-  default = "../../gcp-key.json"
+  default = "/Users/elvisngwesse/Desktop/Repositories/terraform/gcp-key.json"
+  sensitive   = true
 }
 
 # --------------------------------------------
@@ -41,4 +42,13 @@ variable "instance_name" {
   description = "The name of the Compute Engine instance"
   type        = string
   default     = "example-instance"
+}
+
+# --------------------------------------------------
+# Name Machine image
+# --------------------------------------------------
+variable "image_name" {
+  description = "The name the machine image"
+  type        = string
+  default     = "projects/ubuntu-os-cloud/global/images/family/ubuntu-2004-lts"
 }

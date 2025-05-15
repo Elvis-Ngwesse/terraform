@@ -24,9 +24,11 @@ Once you have everything set up, you can use Terragrunt to manage and deploy the
 
 cd live/dev/gce-instance
 terragrunt apply
+terragrunt run-all destroy
 
 gsutil mb -l europe-west2 gs://my-devops-terraform-bucket-2-20230514/
-gsutil versioning set on gs://your-terraform-state-bucket/
+gsutil versioning set on gs://my-devops-terraform-bucket-2-20230514
+
 gsutil -m rm -r gs://my-devops-terraform-bucket-2-20230514
 gsutil -m rm -r gs://my-devops-terraform-bucket-2-20230514/* && gsutil rb gs://my-devops-terraform-bucket-2-20230514/
 
