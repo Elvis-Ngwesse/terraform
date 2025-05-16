@@ -35,7 +35,13 @@ terraform workspace show  # Show the current active workspace
 terraform workspace select test  # Switch to the 'test' workspace (replace 'test' with your desired workspace)
 
 # --------------------------------------------------------------
-# 7. GCP Credentials File Path
+# 7. Generate and download the JSON key
+# --------------------------------------------------------------
+gcloud iam service-accounts keys create ./devops-key.json \
+--iam-account=new-devops-service-account@new-devops-project-1.iam.gserviceaccount.com
+
+# --------------------------------------------------------------
+# 8. GCP Credentials File Path
 # --------------------------------------------------------------
 # Define the path to your GCP credentials file (ensure the path is correct)
 gcp_key_path="/Users/elvisngwesse/Desktop/Repositories/terraform/gcp-key.json"
