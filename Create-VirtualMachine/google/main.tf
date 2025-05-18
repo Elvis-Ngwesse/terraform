@@ -115,6 +115,7 @@ resource "google_compute_instance" "vm_instance" {
   labels = {
     environment = local.environment
     role        = "ubuntu-test"
+    ansible-managed = "true"
   }
 
   depends_on = [
