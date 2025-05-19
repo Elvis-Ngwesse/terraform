@@ -15,5 +15,5 @@ venv
 *.hcl
 *.backup
 crash.log
-
+*.DS_Store
 Create-CloudFunction/aws/python/

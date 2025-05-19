@@ -156,7 +156,7 @@ resource "aws_route_table_association" "main_private_route_table_assoc" {
 # Create EC2 Instance in Public Subnet
 # -----------------------------
 resource "aws_instance" "t2_micro_public_instance" {
-  count             = 1  # Launch one instance
+  count             = 2  # Launch one instance
   ami               = var.ami_id  # AMI to use for the instance
   instance_type     = var.machine  # Instance type (e.g., t2.micro)
   availability_zone = var.availability_zone  # AZ in which to launch the instance
@@ -170,6 +170,7 @@ resource "aws_instance" "t2_micro_public_instance" {
     Name        = "public-instance-${count.index + 1}"  # Tag the instance with a name
     Environment = local.environment  # Add environment tag
     Role        = "ubuntu-test"  # Custom role tag
+    ansible-managed = "true"
   }
 
   # User data script to run on instance boot
