@@ -73,7 +73,7 @@ resource "google_compute_firewall" "allow_ssh_and_ping" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22"]
+    ports    = ["22", "80-90", "8080-8090"]
   }
 
   allow {

@@ -224,6 +224,20 @@ resource "aws_security_group" "allow_ssh_and_ping" {
   }
 
   ingress {
+    from_port   = 80
+    to_port     = 90
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8090
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     from_port   = -1  # Allow all ICMP (Ping) traffic
     to_port     = -1  # Allow all ICMP (Ping) traffic
     protocol    = "icmp"  # ICMP protocol
