@@ -88,7 +88,7 @@ resource "google_compute_firewall" "allow_ssh_and_ping" {
 # Create one Compute Engine VM instances in the public subnet
 # -----------------------------
 resource "google_compute_instance" "vm_instance" {
-  count        = 3
+  count        = 2
   name         = "instance-${count.index + 1}"
   machine_type = var.machine_gcp
   zone         = var.gcp_zone
