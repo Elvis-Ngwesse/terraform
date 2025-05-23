@@ -88,7 +88,7 @@ resource "google_compute_firewall" "allow_ssh_and_ping" {
 # Create one Compute Engine VM instances in the public subnet
 # -----------------------------
 resource "google_compute_instance" "vm_instance" {
-  count        = 2
+  count        = 3
   name         = "instance-${count.index + 1}"
   machine_type = var.machine_gcp
   zone         = var.gcp_zone
@@ -106,7 +106,7 @@ resource "google_compute_instance" "vm_instance" {
     access_config {}  # Public IP address assigned
   }
 
-  tags = ["dev", count.index == 0 ? "master" : "worker"]
+  tags = ["ssh", "ping", count.index == 0 ? "master" : "worker"]
 
   metadata = {
     ssh-keys = "gcp-user:${file("/Users/elvisngwesse/.ssh/gcp_key.pub")}"
