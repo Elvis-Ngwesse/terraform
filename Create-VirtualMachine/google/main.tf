@@ -106,7 +106,7 @@ resource "google_compute_instance" "vm_instance" {
     access_config {}  # Public IP address assigned
   }
 
-  tags = ["ssh", "ping"]
+  tags = ["dev", count.index == 0 ? "master" : "worker"]
 
   metadata = {
     ssh-keys = "gcp-user:${file("/Users/elvisngwesse/.ssh/gcp_key.pub")}"
